@@ -1,30 +1,22 @@
 {
-    "name": "lexik/translation-bundle",
+    "name": "qbt/translation-bundle",
     "type": "symfony-bundle",
     "description": "This bundle allow to import translation files content into the database and provide a GUI to edit translations.",
     "keywords": ["Symfony2", "bundle", "translation", "i18n"],
-    "homepage": "https://github.com/lexik/LexikTranslationBundle",
+    "homepage": "https://github.com/QBT/TranslationBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "Cedric Girard",
-            "email": "c.girard@lexik.fr"
-        },
-        {
-            "name": "Dev Lexik",
-            "email": "dev@lexik.fr"
+            "name": "Alexandre Checinski",
+            "email": "ac@kubity.com"
         }
     ],
     "require": {
         "php": ">=5.3.2",
         "symfony/framework-bundle": "2.1.*,<2.2-dev"
     },
-    "suggest": {
-        "doctrine/orm": ">=2.1.*",
-        "doctrine/mongodb-odm": "*"
-    },
     "autoload":     {
-        "psr-0": { "Lexik\\Bundle\\TranslationBundle": "" }
+        "psr-0": { "QBT\\Bundle\\TranslationBundle": "" }
     },
-    "target-dir": "Lexik/Bundle/TranslationBundle"
+    "target-dir": "QBT/Bundle/TranslationBundle"
 }
