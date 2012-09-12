@@ -1,7 +1,7 @@
 {
     "name": "qbt/translation-bundle",
     "type": "symfony-bundle",
-    "description": "This bundle allow to import translation files content into the database and provide a GUI to edit translations.",
+    "description": "This bundle allow to import translation files content into the database and provide a GUI to edit translations. This is fork from Lexik/LexikTranslationBundle",
     "keywords": ["Symfony2", "bundle", "translation", "i18n"],
     "homepage": "https://github.com/QBT/TranslationBundle",
     "license": "MIT",
