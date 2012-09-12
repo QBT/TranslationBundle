@@ -45,7 +45,7 @@ class QBTTranslationExtension extends Extension
         $container->setParameter('qbt_translation.loader.database.class', $config['classes']['database_loader']);
         $container->setParameter('qbt_translation.trans_unit.class', 'QBT\TranslationBundle\Entity\TransUnit');
         $container->setParameter('qbt_translation.translation.class', 'QBT\TranslationBundle\Entity\Translation');
-        $container->setParameter('qbt_translation.file.class', 'QBT\TranslationBundle\%s\File');
+        $container->setParameter('qbt_translation.file.class', 'QBT\TranslationBundle\Entity\File');
 
         $this->registerTranslatorConfiguration($config, $container);
     }

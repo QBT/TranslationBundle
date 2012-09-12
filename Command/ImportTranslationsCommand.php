@@ -127,7 +127,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
 
             $finder = new Finder();
             $finder->files()
-                ->name(sprintf('/(.*(%s)\.(%s))/', implode('|', $locales), implode('|', $formats)))
+                ->name(sprintf('/(.*(%s)\.(%s))$/', implode('|', $locales), implode('|', $formats)))
                 ->in($dir);
         }
 
