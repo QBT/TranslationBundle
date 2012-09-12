@@ -1,14 +1,14 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation\Importer;
+namespace QBT\TranslationBundle\Translation\Importer;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Lexik\Bundle\TranslationBundle\Document\TransUnit as TransUnitDocument;
-use Lexik\Bundle\TranslationBundle\Model\TransUnit;
-use Lexik\Bundle\TranslationBundle\Model\Translation;
-use Lexik\Bundle\TranslationBundle\Translation\Manager\FileManager;
-use Lexik\Bundle\TranslationBundle\Translation\Manager\TransUnitManager;
+use QBT\TranslationBundle\Document\TransUnit as TransUnitDocument;
+use QBT\TranslationBundle\Model\TransUnit;
+use QBT\TranslationBundle\Model\Translation;
+use QBT\TranslationBundle\Translation\Manager\FileManager;
+use QBT\TranslationBundle\Translation\Manager\TransUnitManager;
 
 /**
  * Import a translation file into the database.
@@ -28,12 +28,12 @@ class FileImporter
     private $om;
 
     /**
-     * @var Lexik\Bundle\TranslationBundle\Translation\Manager\TransUnitManager
+     * @var QBT\TranslationBundle\Translation\Manager\TransUnitManager
      */
     private $transUnitManager;
 
     /**
-     * @var Lexik\Bundle\TranslationBundle\Translation\Manager\FileManager
+     * @var QBT\TranslationBundle\Translation\Manager\FileManager
      */
     private $fileManager;
 

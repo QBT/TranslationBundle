@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Entity;
+namespace QBT\TranslationBundle\Entity;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-use Lexik\Bundle\TranslationBundle\Model\Translation as TranslationModel;
+use QBT\TranslationBundle\Model\Translation as TranslationModel;
 
 /**
  * @UniqueEntity(fields={"transUnit", "locale"})
@@ -19,7 +19,7 @@ class Translation extends TranslationModel
     protected $id;
 
     /**
-     * @var Lexik\Bundle\TranslationBundle\Entity\TransUnit
+     * @var QBT\TranslationBundle\Entity\TransUnit
      */
     protected $transUnit;
 
@@ -36,9 +36,9 @@ class Translation extends TranslationModel
     /**
      * Set transUnit
      *
-     * @param Lexik\Bundle\TranslationBundle\Entity\TransUnit $transUnit
+     * @param QBT\TranslationBundle\Entity\TransUnit $transUnit
      */
-    public function setTransUnit(\Lexik\Bundle\TranslationBundle\Model\TransUnit $transUnit)
+    public function setTransUnit(\QBT\TranslationBundle\Model\TransUnit $transUnit)
     {
         $this->transUnit = $transUnit;
     }
@@ -46,7 +46,7 @@ class Translation extends TranslationModel
     /**
      * Get transUnit
      *
-     * @return Lexik\Bundle\TranslationBundle\Entity\TransUnit
+     * @return QBT\TranslationBundle\Entity\TransUnit
      */
     public function getTransUnit()
     {
@@ -55,7 +55,7 @@ class Translation extends TranslationModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.Translation::prePersist()
+     * @see QBT\TranslationBundle\Model.Translation::prePersist()
      */
     public function prePersist()
     {
@@ -65,7 +65,7 @@ class Translation extends TranslationModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.Translation::preUpdate()
+     * @see QBT\TranslationBundle\Model.Translation::preUpdate()
      */
     public function preUpdate()
     {

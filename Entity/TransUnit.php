@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Entity;
+namespace QBT\TranslationBundle\Entity;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-use Lexik\Bundle\TranslationBundle\Model\TransUnit as TransUnitModel;
+use QBT\TranslationBundle\Model\TransUnit as TransUnitModel;
 
 /**
  * @UniqueEntity(fields={"key", "domain"})
@@ -16,9 +16,9 @@ class TransUnit extends TransUnitModel
     /**
      * Add translations
      *
-     * @param Lexik\Bundle\TranslationBundle\Entity\Translation $translations
+     * @param QBT\TranslationBundle\Entity\Translation $translations
      */
-    public function addTranslation(\Lexik\Bundle\TranslationBundle\Model\Translation $translation)
+    public function addTranslation(\QBT\TranslationBundle\Model\Translation $translation)
     {
         $translation->setTransUnit($this);
 
@@ -27,7 +27,7 @@ class TransUnit extends TransUnitModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.TransUnit::prePersist()
+     * @see QBT\TranslationBundle\Model.TransUnit::prePersist()
      */
     public function prePersist()
     {
@@ -37,7 +37,7 @@ class TransUnit extends TransUnitModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.TransUnit::preUpdate()
+     * @see QBT\TranslationBundle\Model.TransUnit::preUpdate()
      */
     public function preUpdate()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Fixtures;
+namespace QBT\TranslationBundle\Tests\Fixtures;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -119,9 +119,9 @@ class TransUnitData implements FixtureInterface
         $instance = null;
 
         if ($manager instanceof \Doctrine\ORM\EntityManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Entity\TransUnit();
+            $instance = new \QBT\TranslationBundle\Entity\TransUnit();
         } else if ($manager instanceof \Doctrine\ODM\MongoDB\DocumentManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Document\TransUnit();
+            $instance = new \QBT\TranslationBundle\Document\TransUnit();
         }
 
         return $instance;
@@ -137,9 +137,9 @@ class TransUnitData implements FixtureInterface
         $instance = null;
 
         if ($manager instanceof \Doctrine\ORM\EntityManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Entity\Translation();
+            $instance = new \QBT\TranslationBundle\Entity\Translation();
         } else if ($manager instanceof \Doctrine\ODM\MongoDB\DocumentManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Document\Translation();
+            $instance = new \QBT\TranslationBundle\Document\Translation();
         }
 
         return $instance;
@@ -155,9 +155,9 @@ class TransUnitData implements FixtureInterface
         $instance = null;
 
         if ($manager instanceof \Doctrine\ORM\EntityManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Entity\File();
+            $instance = new \QBT\TranslationBundle\Entity\File();
         } else if ($manager instanceof \Doctrine\ODM\MongoDB\DocumentManager) {
-            $instance = new \Lexik\Bundle\TranslationBundle\Document\File();
+            $instance = new \QBT\TranslationBundle\Document\File();
         }
 
         return $instance;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation\Manager;
+namespace QBT\TranslationBundle\Translation\Manager;
 
-use Lexik\Bundle\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Model\File;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -47,7 +47,7 @@ class FileManager
      *
      * @param string $name
      * @param string $path
-     * @return Lexik\Bundle\TranslationBundle\Model\File
+     * @return QBT\TranslationBundle\Model\File
      */
     public function getFor($name, $path)
     {
@@ -66,7 +66,7 @@ class FileManager
      *
      * @param string $name
      * @param string $path
-     * @return Lexik\Bundle\TranslationBundle\Model\File
+     * @return QBT\TranslationBundle\Model\File
      */
     public function create($name, $path, $flush = false)
     {

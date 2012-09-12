@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit;
+namespace QBT\TranslationBundle\Tests\Unit;
 
-use Lexik\Bundle\TranslationBundle\Util\JQGrid\Mapper;
+use QBT\TranslationBundle\Util\JQGrid\Mapper;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

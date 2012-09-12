@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation\Exporter;
+namespace QBT\TranslationBundle\Translation\Exporter;
 
 /**
  * Exporter collector.

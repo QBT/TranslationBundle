@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Repository;
+namespace QBT\TranslationBundle\Repository;
 
-use Lexik\Bundle\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Model\File;
 
 /**
  * Defines all method document and entity repositories have to implement.

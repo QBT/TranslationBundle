@@ -4,7 +4,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                                             http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
                   
-    <embedded-document name="Lexik\Bundle\TranslationBundle\Document\Translation">
+    <embedded-document name="QBT\TranslationBundle\Document\Translation">
 
         <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="prePersist" />
@@ -19,7 +19,7 @@
 
         <field fieldName="updatedAt" name="updated_at" type="timestamp" />
         
-        <reference-one field="file" target-document="Lexik\Bundle\TranslationBundle\Document\File" inversed-by="translations">
+        <reference-one field="file" target-document="QBT\TranslationBundle\Document\File" inversed-by="translations">
             <cascade>
                 <persist/>
             </cascade>

@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Repository\Document;
+namespace QBT\TranslationBundle\Repository\Document;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
 
-use Lexik\Bundle\TranslationBundle\Repository\FileRepositoryInterface;
+use QBT\TranslationBundle\Repository\FileRepositoryInterface;
 
 /**
  * Repository for TransUnit document.
@@ -15,7 +15,7 @@ class FileRepository extends DocumentRepository implements FileRepositoryInterfa
 {
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.FileRepositoryInterface::findForLoalesAndDomains()
+     * @see QBT\TranslationBundle\Repository.FileRepositoryInterface::findForLoalesAndDomains()
      */
     public function findForLoalesAndDomains(array $locales, array $domains)
     {

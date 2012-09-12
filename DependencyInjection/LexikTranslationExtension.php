@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\DependencyInjection;
+namespace QBT\TranslationBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Processor;
@@ -17,7 +17,7 @@ use Symfony\Component\Finder\Finder;
  *
  * @author Cédric Girard <c.girard@lexik.fr>
  */
-class LexikTranslationExtension extends Extension
+class QBTTranslationExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -33,43 +33,43 @@ class LexikTranslationExtension extends Extension
 
         if ($config['storage'] == 'orm') {
             $type = 'Entity';
-            $container->setAlias('lexik_translation.storage_manager', 'doctrine.orm.entity_manager');
+            $container->setAlias('qbt_translation.storage_manager', 'doctrine.orm.entity_manager');
         } else if ($config['storage'] == 'mongodb') {
             $type = 'Document';
-            $container->setAlias('lexik_translation.storage_manager', 'doctrine.odm.mongodb.document_manager');
+            $container->setAlias('qbt_translation.storage_manager', 'doctrine.odm.mongodb.document_manager');
         } else {
             throw new \RuntimeException(sprintf('Unsupported storage "%s".', $config['storage']));
         }
 
         // set parameters
         sort($config['managed_locales']);
-        $container->setParameter('lexik_translation.managed_locales', $config['managed_locales']);
-        $container->setParameter('lexik_translation.fallback_locale', $config['fallback_locale']);
-        $container->setParameter('lexik_translation.storage', $config['storage']);
-        $container->setParameter('lexik_translation.base_layout', $config['base_layout']);
-        $container->setParameter('lexik_translation.grid_input_type', $config['grid_input_type']);
+        $container->setParameter('qbt_translation.managed_locales', $config['managed_locales']);
+        $container->setParameter('qbt_translation.fallback_locale', $config['fallback_locale']);
+        $container->setParameter('qbt_translation.storage', $config['storage']);
+        $container->setParameter('qbt_translation.base_layout', $config['base_layout']);
+        $container->setParameter('qbt_translation.grid_input_type', $config['grid_input_type']);
 
-        $container->setParameter('lexik_translation.translator.class', $config['classes']['translator']);
-        $container->setParameter('lexik_translation.loader.database.class', $config['classes']['database_loader']);
-        $container->setParameter('lexik_translation.trans_unit.class', sprintf('Lexik\Bundle\TranslationBundle\%s\TransUnit', $type));
-        $container->setParameter('lexik_translation.translation.class', sprintf('Lexik\Bundle\TranslationBundle\%s\Translation', $type));
-        $container->setParameter('lexik_translation.file.class', sprintf('Lexik\Bundle\TranslationBundle\%s\File', $type));
+        $container->setParameter('qbt_translation.translator.class', $config['classes']['translator']);
+        $container->setParameter('qbt_translation.loader.database.class', $config['classes']['database_loader']);
+        $container->setParameter('qbt_translation.trans_unit.class', sprintf('QBT\TranslationBundle\%s\TransUnit', $type));
+        $container->setParameter('qbt_translation.translation.class', sprintf('QBT\TranslationBundle\%s\Translation', $type));
+        $container->setParameter('qbt_translation.file.class', sprintf('QBT\TranslationBundle\%s\File', $type));
 
         $this->registerTranslatorConfiguration($config, $container);
     }
 
     /**
-     * Register the "lexik_translation.translator" service configuration.
+     * Register the "qbt_translation.translator" service configuration.
      *
      * @param array $config
      * @param ContainerBuilder $container
      */
     protected function registerTranslatorConfiguration(array $config, ContainerBuilder $container)
     {
-        // use the Lexik translator as default translator service
-        $container->setAlias('translator', 'lexik_translation.translator');
+        // use the QBT translator as default translator service
+        $container->setAlias('translator', 'qbt_translation.translator');
 
-        $translator = $container->findDefinition('lexik_translation.translator');
+        $translator = $container->findDefinition('qbt_translation.translator');
         $translator->addMethodCall('setFallbackLocale', array($config['fallback_locale']));
 
         $registration = $config['resources_registration'];

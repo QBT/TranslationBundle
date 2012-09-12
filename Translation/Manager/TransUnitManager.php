@@ -1,12 +1,12 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation\Manager;
+namespace QBT\TranslationBundle\Translation\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Lexik\Bundle\TranslationBundle\Model\File;
-use Lexik\Bundle\TranslationBundle\Model\TransUnit;
-use Lexik\Bundle\TranslationBundle\Model\Translation;
+use QBT\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Model\TransUnit;
+use QBT\TranslationBundle\Model\Translation;
 
 /**
  * Class to manage TransUnit entities or documents.
@@ -48,7 +48,7 @@ class TransUnitManager
      * Returns a new TransUnit instance with new translations for each $locales.
      *
      * @param array $locales
-     * @return Lexik\Bundle\TranslationBundle\Model\TransUnit
+     * @return QBT\TranslationBundle\Model\TransUnit
      */
     public function newInstance($locales = array())
     {
@@ -72,7 +72,7 @@ class TransUnitManager
      * @param string $keyName
      * @param string $domainName
      * @param boolean $flush
-     * @return Lexik\Bundle\TranslationBundle\Model\TransUnit
+     * @return QBT\TranslationBundle\Model\TransUnit
      */
     public function create($keyName, $domainName, $flush = false)
     {
@@ -94,7 +94,7 @@ class TransUnitManager
      *
      * @param string $key
      * @param string $domainName
-     * @return Lexik\Bundle\TranslationBundle\Model\TransUnit
+     * @return QBT\TranslationBundle\Model\TransUnit
      */
     public function findOneByKeyAndDomain($key, $domain)
     {
@@ -109,12 +109,12 @@ class TransUnitManager
     /**
      * Add a new translation to the given trans unit.
      *
-     * @param Lexik\Bundle\TranslationBundle\Model\TransUnit $transUnit
+     * @param QBT\TranslationBundle\Model\TransUnit $transUnit
      * @param string $locale
      * @param string $content
-     * @param Lexik\Bundle\TranslationBundle\Model\File $file
+     * @param QBT\TranslationBundle\Model\File $file
      * @param boolean $flush
-     * @return Lexik\Bundle\TranslationBundle\Model\Translation
+     * @return QBT\TranslationBundle\Model\Translation
      */
     public function addTranslation(TransUnit $transUnit, $locale, $content, File $file = null, $flush = false)
     {
@@ -146,11 +146,11 @@ class TransUnitManager
     /**
      * Update the translated content of a trans unit for the given locale.
      *
-     * @param Lexik\Bundle\TranslationBundle\Model\TransUnit $transUnit
+     * @param QBT\TranslationBundle\Model\TransUnit $transUnit
      * @param string $locale
      * @param string $content
      * @param boolean $flush
-     * @return Lexik\Bundle\TranslationBundle\Model\Translation
+     * @return QBT\TranslationBundle\Model\Translation
      */
     public function updateTranslation(TransUnit $transUnit, $locale, $content, $flush = false)
     {

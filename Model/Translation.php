@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Model;
+namespace QBT\TranslationBundle\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -26,7 +26,7 @@ abstract class Translation
     protected $content;
 
     /**
-     * @var Lexik\Bundle\TranslationBundle\Model\File
+     * @var QBT\TranslationBundle\Model\File
      */
     protected $file;
 
@@ -95,9 +95,9 @@ abstract class Translation
     /**
      * Set file
      *
-     * @param \Lexik\Bundle\TranslationBundle\Model\File $file
+     * @param \QBT\TranslationBundle\Model\File $file
      */
-    public function setFile(\Lexik\Bundle\TranslationBundle\Model\File $file)
+    public function setFile(\QBT\TranslationBundle\Model\File $file)
     {
         $this->file = $file;
     }
@@ -105,7 +105,7 @@ abstract class Translation
     /**
      * Get file
      *
-     * @return \Lexik\Bundle\TranslationBundle\Model\File
+     * @return \QBT\TranslationBundle\Model\File
      */
     public function getFile()
     {

@@ -12,7 +12,7 @@
          bootstrap="Tests/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="LexikTranslationBundle Test Suite">
+        <testsuite name="QBTTranslationBundle Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>

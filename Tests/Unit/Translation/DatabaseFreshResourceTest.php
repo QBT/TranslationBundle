@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation;
+namespace QBT\TranslationBundle\Tests\Unit\Translation;
 
-use Lexik\Bundle\TranslationBundle\Translation\DatabaseFreshResource;
+use QBT\TranslationBundle\Translation\DatabaseFreshResource;
 
 /**
  * DatabaseFreshResource tests.

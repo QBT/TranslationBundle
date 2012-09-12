@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Document;
+namespace QBT\TranslationBundle\Document;
 
-use Lexik\Bundle\TranslationBundle\Model\Translation as TranslationModel;
+use QBT\TranslationBundle\Model\Translation as TranslationModel;
 
 /**
  * @author Cédric Girard <c.girard@lexik.fr>
@@ -21,7 +21,7 @@ class Translation extends TranslationModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.Translation::prePersist()
+     * @see QBT\TranslationBundle\Model.Translation::prePersist()
      */
     public function prePersist()
     {
@@ -33,7 +33,7 @@ class Translation extends TranslationModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.Translation::preUpdate()
+     * @see QBT\TranslationBundle\Model.Translation::preUpdate()
      */
     public function preUpdate()
     {

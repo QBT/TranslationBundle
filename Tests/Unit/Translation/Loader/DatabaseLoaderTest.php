@@ -1,9 +1,9 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation\Loader;
+namespace QBT\TranslationBundle\Tests\Unit\Translation\Loader;
 
-use Lexik\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader;
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Translation\Loader\DatabaseLoader;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 /**
  * DatabaseLoader tests.
@@ -21,7 +21,7 @@ class DatabaseLoaderTest extends BaseUnitTestCase
         $this->createSchema($em);
         $this->loadFixtures($em);
 
-        $loader = new DatabaseLoader($em, 'Lexik\\Bundle\\TranslationBundle\\Entity\\TransUnit');
+        $loader = new DatabaseLoader($em, 'QBT\\Bundle\\TranslationBundle\\Entity\\TransUnit');
 
         $catalogue = $loader->load(null, 'it');
         $this->assertInstanceOf('Symfony\Component\Translation\MessageCatalogue', $catalogue);

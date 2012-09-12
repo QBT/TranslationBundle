@@ -1,18 +1,18 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle;
+namespace QBT\TranslationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use Lexik\Bundle\TranslationBundle\DependencyInjection\Compiler\TranslatorPass;
+use QBT\TranslationBundle\DependencyInjection\Compiler\TranslatorPass;
 
 /**
  * Bundle main class.
  *
  * @author Cédric Girard <c.girard@lexik.fr>
  */
-class LexikTranslationBundle extends Bundle
+class QBTTranslationBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

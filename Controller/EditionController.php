@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Controller;
+namespace QBT\TranslationBundle\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -8,11 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
 
-use Lexik\Bundle\TranslationBundle\Document\TransUnit as TransUnitDocument;
-use Lexik\Bundle\TranslationBundle\Model\File;
-use Lexik\Bundle\TranslationBundle\Model\TransUnit;
-use Lexik\Bundle\TranslationBundle\Form\TransUnitType;
-use Lexik\Bundle\TranslationBundle\Util\JQGrid\Mapper;
+use QBT\TranslationBundle\Document\TransUnit as TransUnitDocument;
+use QBT\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Model\TransUnit;
+use QBT\TranslationBundle\Form\TransUnitType;
+use QBT\TranslationBundle\Util\JQGrid\Mapper;
 
 /**
  * Translations edition controlller.
@@ -29,7 +29,7 @@ class EditionController extends Controller
     public function listAction()
     {
         $locales = $this->getManagedLocales();
-        $repository = $this->get('lexik_translation.storage_manager')->getRepository($this->container->getParameter('lexik_translation.trans_unit.class'));
+        $repository = $this->get('qbt_translation.storage_manager')->getRepository($this->container->getParameter('qbt_translation.trans_unit.class'));
 
         $transUnits = $repository->getTransUnitList(
             $locales,
@@ -57,9 +57,9 @@ class EditionController extends Controller
      */
     public function gridAction()
     {
-        return $this->render('LexikTranslationBundle:Edition:grid.html.twig', array(
-            'layout'    => $this->container->getParameter('lexik_translation.base_layout'),
-            'inputType' => $this->container->getParameter('lexik_translation.grid_input_type'),
+        return $this->render('QBTTranslationBundle:Edition:grid.html.twig', array(
+            'layout'    => $this->container->getParameter('qbt_translation.base_layout'),
+            'inputType' => $this->container->getParameter('qbt_translation.grid_input_type'),
             'locales'   => $this->getManagedLocales(),
         ));
     }
@@ -76,7 +76,7 @@ class EditionController extends Controller
             $result = array();
 
             if ('edit' == $request->request->get('oper')) {
-                $transUnitManager = $this->get('lexik_translation.trans_unit.manager');
+                $transUnitManager = $this->get('qbt_translation.trans_unit.manager');
                 $transUnit = $transUnitManager->getTransUnitRepository()->findOneById($request->request->get('id'));
 
                 if (!($transUnit instanceof TransUnit)) {
@@ -94,7 +94,7 @@ class EditionController extends Controller
                     $transUnit->convertMongoTimestamp();
                 }
 
-                $this->get('lexik_translation.storage_manager')->flush();
+                $this->get('qbt_translation.storage_manager')->flush();
 
                 $result['success'] = true;
             }
@@ -114,9 +114,9 @@ class EditionController extends Controller
     {
         $this->get('translator')->removeLocalesCacheFiles($this->getManagedLocales());
 
-        $this->get('session')->setFlash('success', $this->get('translator')->trans('translations.cache_removed', array(), 'LexikTranslationBundle'));
+        $this->get('session')->setFlash('success', $this->get('translator')->trans('translations.cache_removed', array(), 'QBTTranslationBundle'));
 
-        return $this->redirect($this->generateUrl('lexik_translation_grid'));
+        return $this->redirect($this->generateUrl('qbt_translation_grid'));
     }
 
     /**
@@ -126,13 +126,13 @@ class EditionController extends Controller
      */
     public function newAction()
     {
-        $om = $this->get('lexik_translation.storage_manager');
-        $transUnit = $this->get('lexik_translation.trans_unit.manager')->newInstance($this->getManagedLocales());
+        $om = $this->get('qbt_translation.storage_manager');
+        $transUnit = $this->get('qbt_translation.trans_unit.manager')->newInstance($this->getManagedLocales());
 
         $options = array(
-            'domains'           => $om->getRepository('LexikTranslationBundle:TransUnit')->getAllDomains(),
-            'data_class'        => $this->container->getParameter('lexik_translation.trans_unit.class'),
-            'translation_class' => $this->container->getParameter('lexik_translation.translation.class'),
+            'domains'           => $om->getRepository('QBTTranslationBundle:TransUnit')->getAllDomains(),
+            'data_class'        => $this->container->getParameter('qbt_translation.trans_unit.class'),
+            'translation_class' => $this->container->getParameter('qbt_translation.translation.class'),
         );
 
         $form = $this->createForm(new TransUnitType(), $transUnit, $options);
@@ -146,7 +146,7 @@ class EditionController extends Controller
                 // link new translations to a file to be able to export them.
                 foreach ($translations as $translation) {
                     if (!$translation->getFile()) {
-                        $file = $this->get('lexik_translation.file.manager')->getFor(
+                        $file = $this->get('qbt_translation.file.manager')->getFor(
                             sprintf('%s.%s.yml', $transUnit->getDomain(), $translation->getLocale()),
                             $this->container->getParameter('kernel.root_dir').'/Resources/translations'
                         );
@@ -161,12 +161,12 @@ class EditionController extends Controller
                 $om->persist($transUnit);
                 $om->flush();
 
-                return $this->redirect($this->generateUrl('lexik_translation_grid'));
+                return $this->redirect($this->generateUrl('qbt_translation_grid'));
             }
         }
 
-        return $this->render('LexikTranslationBundle:Edition:new.html.twig', array(
-            'layout' => $this->container->getParameter('lexik_translation.base_layout'),
+        return $this->render('QBTTranslationBundle:Edition:new.html.twig', array(
+            'layout' => $this->container->getParameter('qbt_translation.base_layout'),
             'form' => $form->createView(),
         ));
     }
@@ -178,6 +178,6 @@ class EditionController extends Controller
      */
     protected function getManagedLocales()
     {
-        return $this->container->getParameter('lexik_translation.managed_locales');
+        return $this->container->getParameter('qbt_translation.managed_locales');
     }
 }

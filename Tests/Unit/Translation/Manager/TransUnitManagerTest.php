@@ -1,12 +1,12 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation\Manager;;
+namespace QBT\TranslationBundle\Tests\Unit\Translation\Manager;;
 
 use Doctrine\ODM\MongoDB\UnitOfWork as ODMUnitOfWork;
 use Doctrine\ORM\UnitOfWork as ORMUnitOfWork;
 
-use Lexik\Bundle\TranslationBundle\Translation\Manager\TransUnitManager;
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Translation\Manager\TransUnitManager;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 /**
  * Unit test for TransUnitManager.
@@ -77,7 +77,7 @@ class TransUnitManagerTest extends BaseUnitTestCase
     {
         $manager = new TransUnitManager($this->em, self::ENTITY_TRANS_UNIT_CLASS, self::ENTITY_TRANSLATION_CLASS);
 
-        $class = 'Lexik\Bundle\TranslationBundle\Entity\TransUnit';
+        $class = 'QBT\TranslationBundle\Entity\TransUnit';
         $transUnit = $manager->create('bwah', 'messages', true);
 
         $translation = $manager->addTranslation($transUnit, 'en', 'bwaaaAaAahhHHh', null, true);

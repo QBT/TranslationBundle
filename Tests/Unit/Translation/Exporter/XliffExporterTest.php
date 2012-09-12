@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation\Exporter;
+namespace QBT\TranslationBundle\Tests\Unit\Translation\Exporter;
 
-use Lexik\Bundle\TranslationBundle\Translation\Exporter\XliffExporter;
+use QBT\TranslationBundle\Translation\Exporter\XliffExporter;
 
 /**
  * XliffExporter tests.

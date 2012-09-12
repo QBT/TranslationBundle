@@ -1,13 +1,13 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Repository\Entity;
+namespace QBT\TranslationBundle\Repository\Entity;
 
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 
-use Lexik\Bundle\TranslationBundle\Model\File;
-use Lexik\Bundle\TranslationBundle\Repository\TransUnitRepositoryInterface;
+use QBT\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Repository\TransUnitRepositoryInterface;
 
 /**
  * Repository for TransUnit entity.
@@ -18,7 +18,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 {
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllDomainsByLocale()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllDomainsByLocale()
      */
     public function getAllDomainsByLocale()
     {
@@ -33,7 +33,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllByLocaleAndDomain()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllByLocaleAndDomain()
      */
     public function getAllByLocaleAndDomain($locale, $domain)
     {
@@ -50,7 +50,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllDomains()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::getAllDomains()
      */
     public function getAllDomains()
     {
@@ -65,7 +65,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::getTransUnitList()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::getTransUnitList()
      */
     public function getTransUnitList(array $locales = null, $rows = 20, $page = 1, array $filters = null)
     {
@@ -105,7 +105,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::count()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::count()
      */
     public function count(array $locales = null,  array $filters = null)
     {
@@ -123,7 +123,7 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.TransUnitRepositoryInterface::getTranslationsForFile()
+     * @see QBT\TranslationBundle\Repository.TransUnitRepositoryInterface::getTranslationsForFile()
      */
     public function getTranslationsForFile(File $file, $onlyUpdated)
     {
@@ -206,6 +206,6 @@ class TransUnitRepository extends EntityRepository implements TransUnitRepositor
     protected function loadCustomHydrator()
     {
         $config = $this->getEntityManager()->getConfiguration();
-        $config->addCustomHydrationMode('SingleColumnArrayHydrator', 'Lexik\Bundle\TranslationBundle\Hydrators\SingleColumnArrayHydrator');
+        $config->addCustomHydrationMode('SingleColumnArrayHydrator', 'QBT\TranslationBundle\Hydrators\SingleColumnArrayHydrator');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation\Loader;
+namespace QBT\TranslationBundle\Translation\Loader;
 
 use Doctrine\Common\Persistence\ObjectManager;
 

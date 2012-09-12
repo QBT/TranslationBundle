@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Util\JQGrid;
+namespace QBT\TranslationBundle\Util\JQGrid;
 
 /**
  * Class to create a jqGrid compatible result.

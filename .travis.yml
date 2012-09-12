@@ -7,7 +7,7 @@ env:
   - SYMFONY_VERSION=v2.1
 
 before_script: 
-  - mongo lexik_translation_bundle_test --eval 'db.addUser("travis", "lexik");'
+  - mongo qbt_translation_bundle_test --eval 'db.addUser("travis", "qbt");'
   - php Tests/vendors.php
 
 script: phpunit

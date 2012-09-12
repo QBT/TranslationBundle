@@ -1,12 +1,12 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation\Manager;
+namespace QBT\TranslationBundle\Tests\Unit\Translation\Manager;
 
 use Doctrine\ODM\MongoDB\UnitOfWork as ODMUnitOfWork;
 use Doctrine\ORM\UnitOfWork as ORMUnitOfWork;
 
-use Lexik\Bundle\TranslationBundle\Translation\Manager\FileManager;
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Translation\Manager\FileManager;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 /**
  * Unit test for FileManager.

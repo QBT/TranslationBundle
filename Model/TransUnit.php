@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Model;
+namespace QBT\TranslationBundle\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -120,9 +120,9 @@ abstract class TransUnit
     /**
      * Add translations
      *
-     * @param Lexik\Bundle\TranslationBundle\Model\Translation $translations
+     * @param QBT\TranslationBundle\Model\Translation $translations
      */
-    public function addTranslation(\Lexik\Bundle\TranslationBundle\Model\Translation $translation)
+    public function addTranslation(\QBT\TranslationBundle\Model\Translation $translation)
     {
         $this->translations[] = $translation;
     }

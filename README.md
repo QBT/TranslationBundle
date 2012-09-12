@@ -3,7 +3,7 @@ Overview
 
 This Symfony2 bundle allow to import translation files content into the database and provide a GUI to edit translations.
 
-[![Build Status](https://secure.travis-ci.org/lexik/LexikTranslationBundle.png)](http://travis-ci.org/lexik/LexikTranslationBundle)
+[![Build Status](https://secure.travis-ci.org/qbt/QBTTranslationBundle.png)](http://travis-ci.org/qbt/QBTTranslationBundle)
 
 The idea is to:
 
@@ -18,13 +18,13 @@ You can also export translations from the database in to files in case of you ne
 Documentation
 =============
 
-For installation and configuration refer to [Resources/doc/index.md](https://github.com/lexik/LexikTranslationBundle/blob/master/Resources/doc/index.md)
+For installation and configuration refer to [Resources/doc/index.md](https://github.com/qbt/QBTTranslationBundle/blob/master/Resources/doc/index.md)
 
 ___________________
 
 Here a little screen shot of the edition page :)
 
-![edition page screen](https://github.com/lexik/LexikTranslationBundle/raw/master/Resources/doc/screen/grid.jpg)
+![edition page screen](https://github.com/qbt/QBTTranslationBundle/raw/master/Resources/doc/screen/grid.jpg)
 
 TODO
 ====

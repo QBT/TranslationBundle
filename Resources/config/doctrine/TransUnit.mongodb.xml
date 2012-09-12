@@ -4,9 +4,9 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                                             http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="Lexik\Bundle\TranslationBundle\Document\TransUnit"
-              collection="lexik_trans_unit"
-              repository-class="Lexik\Bundle\TranslationBundle\Repository\Document\TransUnitRepository">
+    <document name="QBT\TranslationBundle\Document\TransUnit"
+              collection="qbt_trans_unit"
+              repository-class="QBT\TranslationBundle\Repository\Document\TransUnitRepository">
 
         <indexes>
             <index>
@@ -32,7 +32,7 @@
 
         <field fieldName="updatedAt" name="updated_at" type="timestamp" />
 
-        <embed-many field="translations" target-document="Lexik\Bundle\TranslationBundle\Document\Translation" strategy="set" />
+        <embed-many field="translations" target-document="QBT\TranslationBundle\Document\Translation" strategy="set" />
         
     </document>
 </doctrine-mongo-mapping>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Document;
+namespace QBT\TranslationBundle\Document;
 
-use Lexik\Bundle\TranslationBundle\Model\File as FileModel;
+use QBT\TranslationBundle\Model\File as FileModel;
 
 /**
  * @author Cédric Girard <c.girard@lexik.fr>
@@ -11,7 +11,7 @@ class File extends FileModel
 {
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.File::prePersist()
+     * @see QBT\TranslationBundle\Model.File::prePersist()
      */
     public function prePersist()
     {
@@ -23,7 +23,7 @@ class File extends FileModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.File::preUpdate()
+     * @see QBT\TranslationBundle\Model.File::preUpdate()
      */
     public function preUpdate()
     {

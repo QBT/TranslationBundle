@@ -4,9 +4,9 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"> 
 
-    <entity name="Lexik\Bundle\TranslationBundle\Entity\TransUnit" 
-            table="lexik_trans_unit" 
-            repository-class="Lexik\Bundle\TranslationBundle\Repository\Entity\TransUnitRepository">
+    <entity name="QBT\TranslationBundle\Entity\TransUnit" 
+            table="qbt_trans_unit" 
+            repository-class="QBT\TranslationBundle\Repository\Entity\TransUnitRepository">
             
         <unique-constraints>
             <unique-constraint name="key_domain_idx" columns="key_name,domain" />
@@ -29,7 +29,7 @@
         
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true" />
         
-        <one-to-many field="translations" target-entity="Lexik\Bundle\TranslationBundle\Entity\Translation" mapped-by="transUnit">
+        <one-to-many field="translations" target-entity="QBT\TranslationBundle\Entity\Translation" mapped-by="transUnit">
             <cascade>
                 <cascade-all/>
             </cascade>

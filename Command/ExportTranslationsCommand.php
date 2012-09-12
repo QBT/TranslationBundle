@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Command;
+namespace QBT\TranslationBundle\Command;
 
-use Lexik\Bundle\TranslationBundle\Model\File;
+use QBT\TranslationBundle\Model\File;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -33,7 +33,7 @@ class ExportTranslationsCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
-        $this->setName('lexik:translations:export');
+        $this->setName('qbt:translations:export');
         $this->setDescription('Export translations from the database to files.');
 
         $this->addOption('locales', 'l', InputOption::VALUE_OPTIONAL, 'Only export files for given locales. e.g. "--locales=en,de"', null);
@@ -72,7 +72,7 @@ class ExportTranslationsCommand extends ContainerAwareCommand
         $domains = $this->input->getOption('domains') ? explode(',', $this->input->getOption('domains')) : array();
 
         $repository = $this->getContainer()
-            ->get('lexik_translation.file.manager')
+            ->get('qbt_translation.file.manager')
             ->getFileRepository();
 
         return $repository->findForLoalesAndDomains($locales, $domains);
@@ -93,7 +93,7 @@ class ExportTranslationsCommand extends ContainerAwareCommand
         $onlyUpdated = (substr($file->getPath(), 0, 6) == 'vendor');
 
         $translations = $this->getContainer()
-            ->get('lexik_translation.trans_unit.manager')
+            ->get('qbt_translation.trans_unit.manager')
             ->getTransUnitRepository()
             ->getTranslationsForFile($file, $onlyUpdated);
 
@@ -122,7 +122,7 @@ class ExportTranslationsCommand extends ContainerAwareCommand
     protected function mergeExistingTranslations($file, $outputFile, $translations)
     {
         if (file_exists($outputFile)) {
-            $loader = $this->getContainer()->get('lexik_translation.translator')->getLoader($file->getExtention());
+            $loader = $this->getContainer()->get('qbt_translation.translator')->getLoader($file->getExtention());
             $messageCatalogue = $loader->load($outputFile, $file->getLocale(), $file->getDomain());
 
             $translations = array_merge($messageCatalogue->all($file->getDomain()), $translations);
@@ -144,7 +144,7 @@ class ExportTranslationsCommand extends ContainerAwareCommand
         $this->output->write(sprintf('<comment>%d translations to export: </comment>', count($translations)));
 
         try {
-            $exporter = $this->getContainer()->get('lexik_translation.exporter_collector')->getByFormat($format);
+            $exporter = $this->getContainer()->get('qbt_translation.exporter_collector')->getByFormat($format);
             $exported = $exporter->export($outputFile, $translations);
 
             $this->output->writeln($exported ? '<comment>success</comment>' : '<error>fail</error>');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\DependencyInjection\Compiler;
+namespace QBT\TranslationBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -29,18 +29,18 @@ class TranslatorPass implements CompilerPassInterface
             }
         }
 
-        if ($container->hasDefinition('lexik_translation.translator')) {
-            $container->findDefinition('lexik_translation.translator')->replaceArgument(2, $loaders);
+        if ($container->hasDefinition('qbt_translation.translator')) {
+            $container->findDefinition('qbt_translation.translator')->replaceArgument(2, $loaders);
         }
 
-        if ($container->hasDefinition('lexik_translation.importer.file')) {
-            $container->findDefinition('lexik_translation.importer.file')->replaceArgument(0, $loadersReferences);
+        if ($container->hasDefinition('qbt_translation.importer.file')) {
+            $container->findDefinition('qbt_translation.importer.file')->replaceArgument(0, $loadersReferences);
         }
 
         // exporters
-        if ($container->hasDefinition('lexik_translation.exporter_collector')) {
-            foreach ($container->findTaggedServiceIds('lexik_translation.exporter') as $id => $attributes) {
-                $container->getDefinition('lexik_translation.exporter_collector')->addMethodCall('addExporter', array($id, new Reference($id)));
+        if ($container->hasDefinition('qbt_translation.exporter_collector')) {
+            foreach ($container->findTaggedServiceIds('qbt_translation.exporter') as $id => $attributes) {
+                $container->getDefinition('qbt_translation.exporter_collector')->addMethodCall('addExporter', array($id, new Reference($id)));
             }
         }
     }

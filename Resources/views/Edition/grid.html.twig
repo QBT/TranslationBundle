@@ -1,11 +1,11 @@
 {% extends layout %}
 
-{% block title %}{{ 'translations.page_title'|trans({}, 'LexikTranslationBundle') }}{% endblock %}
+{% block title %}{{ 'translations.page_title'|trans({}, 'QBTTranslationBundle') }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets filter="?yui_css" output='css/optimized-jqgrid.css'
-        '@LexikTranslationBundle/Resources/public/lib/jqGrid/css/ui.jqgrid.css' %}
+        '@QBTTranslationBundle/Resources/public/lib/jqGrid/css/ui.jqgrid.css' %}
         <link rel="stylesheet" href="{{ asset_url }}">
     {% endstylesheets %}
 {% endblock %}
@@ -16,24 +16,24 @@
 {% endif %}
 
 <div>
-    <a href="{{ path('lexik_translation_new') }}" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
+    <a href="{{ path('qbt_translation_new') }}" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
         <span class="ui-button-icon-primary ui-icon ui-icon-circle-plus"></span>
-        <span class="ui-button-text">{{ 'translations.new_translation'|trans({}, 'LexikTranslationBundle') }}</span>
+        <span class="ui-button-text">{{ 'translations.new_translation'|trans({}, 'QBTTranslationBundle') }}</span>
     </a>
     &nbsp;
-    <a href="{{ path('lexik_translation_invalidate_cache') }}" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
+    <a href="{{ path('qbt_translation_invalidate_cache') }}" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
         <span class="ui-button-icon-primary ui-icon ui-icon-trash"></span>
-        <span class="ui-button-text">{{ 'translations.invalidate_cache'|trans({}, 'LexikTranslationBundle') }}</span>
+        <span class="ui-button-text">{{ 'translations.invalidate_cache'|trans({}, 'QBTTranslationBundle') }}</span>
     </a>
     &nbsp;
     <button id="select-colunms" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
         <span class="ui-button-icon-primary ui-icon ui-icon-flag"></span>
-        <span class="ui-button-text">{{ 'translations.show_hide_columns'|trans({}, 'LexikTranslationBundle') }}</span>
+        <span class="ui-button-text">{{ 'translations.show_hide_columns'|trans({}, 'QBTTranslationBundle') }}</span>
     </button>
     {% if inputType == 'textarea'  %}
     <button id="save-row" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary">
         <span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
-        <span class="ui-button-text">{{ 'translations.save_row'|trans({}, 'LexikTranslationBundle') }}</span>
+        <span class="ui-button-text">{{ 'translations.save_row'|trans({}, 'QBTTranslationBundle') }}</span>
     </button>
     {% endif %}
 </div>
@@ -47,8 +47,8 @@
 {% block javascript_footer %}
     {{ parent() }}
     {% javascripts filter="?yui_js" output='js/optimized-translator-1.js'
-        '@LexikTranslationBundle/Resources/public/lib/jqGrid/js/i18n/grid.locale-en.js'
-        '@LexikTranslationBundle/Resources/public/lib/jqGrid/js/jquery.jqGrid.min.js' %}
+        '@QBTTranslationBundle/Resources/public/lib/jqGrid/js/i18n/grid.locale-en.js'
+        '@QBTTranslationBundle/Resources/public/lib/jqGrid/js/jquery.jqGrid.min.js' %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}
 <script type="text/javascript">
@@ -56,8 +56,8 @@
 $(document).ready(function() {
     var columnNames = [
         "id"
-        ,'{{ 'translations.domain'|trans({}, 'LexikTranslationBundle') }}'
-        ,'{{ 'translations.key'|trans({}, 'LexikTranslationBundle') }}'
+        ,'{{ 'translations.domain'|trans({}, 'QBTTranslationBundle') }}'
+        ,'{{ 'translations.key'|trans({}, 'QBTTranslationBundle') }}'
 {% for locale in locales %}
         ,'{{ locale }}'
 {% endfor %}
@@ -65,8 +65,8 @@ $(document).ready(function() {
 
     var columnModel = [
         { name: "id", index: "id", width: 40, sortable: true, editable: false, search: false }
-        ,{ name:"{{ 'translations.domain'|trans({}, 'LexikTranslationBundle') }}", index: "domain", width: 100, sortable: true, editable: false }
-        ,{ name:"{{ 'translations.key'|trans({}, 'LexikTranslationBundle') }}", index: "key", width: 150, sortable: true, editable: false }
+        ,{ name:"{{ 'translations.domain'|trans({}, 'QBTTranslationBundle') }}", index: "domain", width: 100, sortable: true, editable: false }
+        ,{ name:"{{ 'translations.key'|trans({}, 'QBTTranslationBundle') }}", index: "key", width: 150, sortable: true, editable: false }
 {% for locale in locales %}
         ,{ name: "{{ locale }}", index: "{{ locale }}", width: 160, sortable: false, editable:true, {{ inputType == 'textarea' ? 'edittype: "textarea", ' : '' }}search: true }
 {% endfor %}
@@ -75,7 +75,7 @@ $(document).ready(function() {
     var lastSelected, lastSaved;
 
     jQuery("#trans-grid").jqGrid({
-        url: "{{ path('lexik_translation_list') }}",
+        url: "{{ path('qbt_translation_list') }}",
         datatype: "json",
         colNames: columnNames,
         colModel: columnModel,
@@ -92,8 +92,8 @@ $(document).ready(function() {
                 lastSelected = id;
             }
         },
-        editurl: "{{ path('lexik_translation_update') }}",
-        caption: "{{ 'translations.grid_caption'|trans({}, 'LexikTranslationBundle') }}"
+        editurl: "{{ path('qbt_translation_update') }}",
+        caption: "{{ 'translations.grid_caption'|trans({}, 'QBTTranslationBundle') }}"
     });
 
     jQuery("#trans-grid").setGridWidth(960);

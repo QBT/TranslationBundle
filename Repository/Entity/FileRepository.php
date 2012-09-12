@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Repository\Entity;
+namespace QBT\TranslationBundle\Repository\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-use Lexik\Bundle\TranslationBundle\Repository\FileRepositoryInterface;
+use QBT\TranslationBundle\Repository\FileRepositoryInterface;
 
 /**
  * Repository for TransUnit entity.
@@ -15,7 +15,7 @@ class FileRepository extends EntityRepository implements FileRepositoryInterface
 {
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Repository.FileRepositoryInterface::findForLoalesAndDomains()
+     * @see QBT\TranslationBundle\Repository.FileRepositoryInterface::findForLoalesAndDomains()
      */
     public function findForLoalesAndDomains(array $locales, array $domains)
     {

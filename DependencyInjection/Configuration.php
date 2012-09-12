@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\DependencyInjection;
+namespace QBT\TranslationBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('lexik_translation');
+        $rootNode = $treeBuilder->root('qbt_translation');
 
         $storages = array('orm', 'mongodb');
         $registrationTypes = array('all', 'files', 'database');
@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('base_layout')
                     ->cannotBeEmpty()
-                    ->defaultValue('LexikTranslationBundle::layout.html.twig')
+                    ->defaultValue('QBTTranslationBundle::layout.html.twig')
                 ->end()
 
                 ->scalarNode('fallback_locale')
@@ -86,11 +86,11 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('translator')
                             ->cannotBeEmpty()
-                            ->defaultValue('Lexik\Bundle\TranslationBundle\Translation\Translator')
+                            ->defaultValue('QBT\TranslationBundle\Translation\Translator')
                         ->end()
                         ->scalarNode('database_loader')
                             ->cannotBeEmpty()
-                            ->defaultValue('Lexik\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader')
+                            ->defaultValue('QBT\TranslationBundle\Translation\Loader\DatabaseLoader')
                         ->end()
                     ->end()
                 ->end()

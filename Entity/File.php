@@ -1,10 +1,10 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Entity;
+namespace QBT\TranslationBundle\Entity;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-use Lexik\Bundle\TranslationBundle\Model\File as FileModel;
+use QBT\TranslationBundle\Model\File as FileModel;
 
 /**
  * @UniqueEntity(fields={"hash"})
@@ -15,7 +15,7 @@ class File extends FileModel
 {
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.File::prePersist()
+     * @see QBT\TranslationBundle\Model.File::prePersist()
      */
     public function prePersist()
     {
@@ -25,7 +25,7 @@ class File extends FileModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.File::preUpdate()
+     * @see QBT\TranslationBundle\Model.File::preUpdate()
      */
     public function preUpdate()
     {

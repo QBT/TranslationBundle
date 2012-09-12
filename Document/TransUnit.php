@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Document;
+namespace QBT\TranslationBundle\Document;
 
-use Lexik\Bundle\TranslationBundle\Model\TransUnit as TransUnitModel;
+use QBT\TranslationBundle\Model\TransUnit as TransUnitModel;
 
 /**
  * @author Cédric Girard <c.girard@lexik.fr>
@@ -25,7 +25,7 @@ class TransUnit extends TransUnitModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.TransUnit::prePersist()
+     * @see QBT\TranslationBundle\Model.TransUnit::prePersist()
      */
     public function prePersist()
     {
@@ -37,7 +37,7 @@ class TransUnit extends TransUnitModel
 
     /**
      * (non-PHPdoc)
-     * @see Lexik\Bundle\TranslationBundle\Model.TransUnit::preUpdate()
+     * @see QBT\TranslationBundle\Model.TransUnit::preUpdate()
      */
     public function preUpdate()
     {

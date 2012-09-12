@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Command;
+namespace QBT\TranslationBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,7 +13,7 @@ use Symfony\Component\Translation\MessageCatalogueInterface;
 
 /**
  * Imports translation files content in the database.
- * Only imports files for locales defined in lexik_translation.managed_locales.
+ * Only imports files for locales defined in qbt_translation.managed_locales.
  *
  * @author Cédric Girard <c.girard@lexik.fr>
  */
@@ -35,7 +35,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
-        $this->setName('lexik:translations:import');
+        $this->setName('qbt:translations:import');
         $this->setDescription('Import all translations from flat files (xliff, yml, php) into the database.');
 
         $this->addOption('cache-clear', 'c', InputOption::VALUE_NONE, 'Remove translations cache files for managed locales.', null);
@@ -50,7 +50,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
         $this->input = $input;
         $this->output = $output;
 
-        $managedLocales = $this->getContainer()->getParameter('lexik_translation.managed_locales');
+        $managedLocales = $this->getContainer()->getParameter('qbt_translation.managed_locales');
 
         $this->output->writeln('<info>*** Importing application translation files ***</info>');
         $this->importAppTranslationFiles($managedLocales);
@@ -99,7 +99,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
     protected function importTranslationFiles($finder)
     {
         if ($finder instanceof Finder) {
-            $importer = $this->getContainer()->get('lexik_translation.importer.file');
+            $importer = $this->getContainer()->get('qbt_translation.importer.file');
 
             foreach ($finder as $file)  {
                 $this->output->write(sprintf('<comment>Importing "%s" ... </comment>', $file->getPathname()));
@@ -123,7 +123,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
         $dir = $path.'/Resources/translations';
 
         if (is_dir($dir)) {
-            $formats = $this->getContainer()->get('lexik_translation.translator')->getFormats();
+            $formats = $this->getContainer()->get('qbt_translation.translator')->getFormats();
 
             $finder = new Finder();
             $finder->files()
@@ -140,7 +140,7 @@ class ImportTranslationsCommand extends ContainerAwareCommand
      */
     public function removeTranslationCache()
     {
-        $locales = $this->getContainer()->getParameter('lexik_translation.managed_locales');
+        $locales = $this->getContainer()->getParameter('qbt_translation.managed_locales');
         $this->getContainer()->get('translator')->removeLocalesCacheFiles($locales);
     }
 }

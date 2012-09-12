@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation;
+namespace QBT\TranslationBundle\Translation;
 
 use Symfony\Component\Config\Resource\ResourceInterface;
 

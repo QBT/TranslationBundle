@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Translation;
+namespace QBT\TranslationBundle\Translation;
 
 use Symfony\Bundle\FrameworkBundle\Translation\Translator as BaseTranslator;
 use Symfony\Component\Translation\MessageSelector;
@@ -28,8 +28,8 @@ class Translator extends BaseTranslator
         $cache = new ConfigCache($file, $this->options['debug']);
 
         if (!$cache->isFresh()) {
-            $resources = $this->container->get('lexik_translation.storage_manager')
-                ->getRepository($this->container->getParameter('lexik_translation.trans_unit.class'))
+            $resources = $this->container->get('qbt_translation.storage_manager')
+                ->getRepository($this->container->getParameter('qbt_translation.trans_unit.class'))
                 ->getAllDomainsByLocale();
 
             $metadata = array();

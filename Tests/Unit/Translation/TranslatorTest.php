@@ -1,9 +1,9 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation;
+namespace QBT\TranslationBundle\Tests\Unit\Translation;
 
-use Lexik\Bundle\TranslationBundle\Translation\Translator;
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Translation\Translator;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 use Symfony\Component\Translation\MessageSelector;
 use Symfony\Component\DependencyInjection\Container;
@@ -96,8 +96,8 @@ class TranslatorTest extends BaseUnitTestCase
     protected function createTranslator($em, $cacheDir)
     {
         $container = new Container();
-        $container->set('lexik_translation.storage_manager', $em);
-        $container->getParameterBag()->set('lexik_translation.trans_unit.class', self::ENTITY_TRANS_UNIT_CLASS);
+        $container->set('qbt_translation.storage_manager', $em);
+        $container->getParameterBag()->set('qbt_translation.trans_unit.class', self::ENTITY_TRANS_UNIT_CLASS);
         $container->compile();
 
         $loaderIds = array();

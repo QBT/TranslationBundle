@@ -1,8 +1,8 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Repository\Entity;
+namespace QBT\TranslationBundle\Tests\Unit\Repository\Entity;
 
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 /**
  * Unit test for TransUnit entity's repository class.

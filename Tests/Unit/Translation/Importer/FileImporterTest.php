@@ -1,11 +1,11 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit\Translation\Importer;
+namespace QBT\TranslationBundle\Tests\Unit\Translation\Importer;
 
-use Lexik\Bundle\TranslationBundle\Translation\Importer\FileImporter;
-use Lexik\Bundle\TranslationBundle\Translation\Manager\FileManager;
-use Lexik\Bundle\TranslationBundle\Translation\Manager\TransUnitManager;
-use Lexik\Bundle\TranslationBundle\Tests\Unit\BaseUnitTestCase;
+use QBT\TranslationBundle\Translation\Importer\FileImporter;
+use QBT\TranslationBundle\Translation\Manager\FileManager;
+use QBT\TranslationBundle\Translation\Manager\TransUnitManager;
+use QBT\TranslationBundle\Tests\Unit\BaseUnitTestCase;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Translation\Loader\PhpFileLoader;

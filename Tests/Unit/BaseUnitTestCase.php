@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Tests\Unit;
+namespace QBT\TranslationBundle\Tests\Unit;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
@@ -9,7 +9,7 @@ use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Doctrine\Common\DataFixtures\Purger\MongoDBPurger;
 use Doctrine\Common\Annotations\AnnotationReader;
 
-use Lexik\Bundle\TranslationBundle\Tests\Fixtures\TransUnitData;
+use QBT\TranslationBundle\Tests\Fixtures\TransUnitData;
 
 /**
  * Base unit test class providing functions to create a mock entity manger, load schema and fixtures.
@@ -18,13 +18,13 @@ use Lexik\Bundle\TranslationBundle\Tests\Fixtures\TransUnitData;
  */
 abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
 {
-    const ENTITY_TRANS_UNIT_CLASS  = 'Lexik\Bundle\TranslationBundle\Entity\TransUnit';
-    const ENTITY_TRANSLATION_CLASS = 'Lexik\Bundle\TranslationBundle\Entity\Translation';
-    const ENTITY_FILE_CLASS        = 'Lexik\Bundle\TranslationBundle\Entity\File';
+    const ENTITY_TRANS_UNIT_CLASS  = 'QBT\TranslationBundle\Entity\TransUnit';
+    const ENTITY_TRANSLATION_CLASS = 'QBT\TranslationBundle\Entity\Translation';
+    const ENTITY_FILE_CLASS        = 'QBT\TranslationBundle\Entity\File';
 
-    const DOCUMENT_TRANS_UNIT_CLASS  = 'Lexik\Bundle\TranslationBundle\Document\TransUnit';
-    const DOCUMENT_TRANSLATION_CLASS = 'Lexik\Bundle\TranslationBundle\Document\Translation';
-    const DOCUMENT_FILE_CLASS        = 'Lexik\Bundle\TranslationBundle\Document\File';
+    const DOCUMENT_TRANS_UNIT_CLASS  = 'QBT\TranslationBundle\Document\TransUnit';
+    const DOCUMENT_TRANSLATION_CLASS = 'QBT\TranslationBundle\Document\Translation';
+    const DOCUMENT_FILE_CLASS        = 'QBT\TranslationBundle\Document\File';
 
     /**
      * Create the database schema.
@@ -80,7 +80,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
 
         // xml driver
         $xmlDriver = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(
-            __DIR__.'/../../Resources/config/doctrine' => 'Lexik\Bundle\TranslationBundle\Entity',
+            __DIR__.'/../../Resources/config/doctrine' => 'QBT\TranslationBundle\Entity',
         ));
 
         // configuration mock
@@ -114,7 +114,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
             $config->expects($this->any())
                 ->method('getCustomHydrationMode')
                 ->with($this->equalTo('SingleColumnArrayHydrator'))
-                ->will($this->returnValue('Lexik\Bundle\TranslationBundle\Hydrators\SingleColumnArrayHydrator'));
+                ->will($this->returnValue('QBT\TranslationBundle\Hydrators\SingleColumnArrayHydrator'));
         }
 
         $conn = array(
@@ -135,7 +135,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
     protected function getMockMongoDbDocumentManager()
     {
         $prefixes = array(
-            'Lexik\Bundle\TranslationBundle\Document' => __DIR__.'/../../Resources/config/doctrine'
+            'QBT\TranslationBundle\Document' => __DIR__.'/../../Resources/config/doctrine'
         );
         $xmlDriver = new \Symfony\Bundle\DoctrineMongoDBBundle\Mapping\Driver\XmlDriver(array_values($prefixes));
         $xmlDriver->setNamespacePrefixes(array_flip($prefixes));
@@ -166,7 +166,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('Doctrine\ODM\MongoDB\Mapping\ClassMetadataFactory'));
         $config->expects($this->any())
             ->method('getDefaultDB')
-            ->will($this->returnValue('lexik_translation_bundle_test'));
+            ->will($this->returnValue('qbt_translation_bundle_test'));
         $config->expects($this->any())
             ->method('getHydratorDir')
             ->will($this->returnValue(sys_get_temp_dir()));
@@ -186,7 +186,7 @@ abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
         $options = array(
             'connect'  => true,
             'username' => 'travis',
-            'password' => 'lexik',
+            'password' => 'qbt',
         );
         $conn = new \Doctrine\MongoDB\Connection(null, $options, $config);
 

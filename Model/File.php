@@ -1,6 +1,6 @@
 <?php
 
-namespace Lexik\Bundle\TranslationBundle\Model;
+namespace QBT\TranslationBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -212,9 +212,9 @@ abstract class File
     /**
      * Add translation
      *
-     * @param Lexik\Bundle\TranslationBundle\Model\Translation $translation
+     * @param QBT\TranslationBundle\Model\Translation $translation
      */
-    public function addTranslation(\Lexik\Bundle\TranslationBundle\Model\Translation $translation)
+    public function addTranslation(\QBT\TranslationBundle\Model\Translation $translation)
     {
         $translation->setFile($this);
 
