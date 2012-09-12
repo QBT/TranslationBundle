@@ -30,30 +30,22 @@ class QBTTranslationExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
-
-        if ($config['storage'] == 'orm') {
-            $type = 'Entity';
-            $container->setAlias('qbt_translation.storage_manager', 'doctrine.orm.entity_manager');
-        } else if ($config['storage'] == 'mongodb') {
-            $type = 'Document';
-            $container->setAlias('qbt_translation.storage_manager', 'doctrine.odm.mongodb.document_manager');
-        } else {
-            throw new \RuntimeException(sprintf('Unsupported storage "%s".', $config['storage']));
-        }
+        
+        $container->setAlias('qbt_translation.storage_manager', 'doctrine.orm.entity_manager');
 
         // set parameters
         sort($config['managed_locales']);
         $container->setParameter('qbt_translation.managed_locales', $config['managed_locales']);
         $container->setParameter('qbt_translation.fallback_locale', $config['fallback_locale']);
-        $container->setParameter('qbt_translation.storage', $config['storage']);
+        //$container->setParameter('qbt_translation.storage', $config['storage']);
         $container->setParameter('qbt_translation.base_layout', $config['base_layout']);
         $container->setParameter('qbt_translation.grid_input_type', $config['grid_input_type']);
 
         $container->setParameter('qbt_translation.translator.class', $config['classes']['translator']);
         $container->setParameter('qbt_translation.loader.database.class', $config['classes']['database_loader']);
-        $container->setParameter('qbt_translation.trans_unit.class', sprintf('QBT\TranslationBundle\%s\TransUnit', $type));
-        $container->setParameter('qbt_translation.translation.class', sprintf('QBT\TranslationBundle\%s\Translation', $type));
-        $container->setParameter('qbt_translation.file.class', sprintf('QBT\TranslationBundle\%s\File', $type));
+        $container->setParameter('qbt_translation.trans_unit.class', 'QBT\TranslationBundle\Entity\TransUnit');
+        $container->setParameter('qbt_translation.translation.class', 'QBT\TranslationBundle\Entity\Translation');
+        $container->setParameter('qbt_translation.file.class', 'QBT\TranslationBundle\%s\File');
 
         $this->registerTranslatorConfiguration($config, $container);
     }

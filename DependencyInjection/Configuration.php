@@ -23,7 +23,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('qbt_translation');
 
-        $storages = array('orm', 'mongodb');
         $registrationTypes = array('all', 'files', 'database');
         $inputTypes = array('text', 'textarea');
 
@@ -52,15 +51,6 @@ class Configuration implements ConfigurationInterface
                     ->validate()
                         ->ifNotInArray($inputTypes)
                         ->thenInvalid('The input type "%s" is not supported. Please use one of the following types: '.implode(', ', $inputTypes))
-                    ->end()
-                ->end()
-
-                ->scalarNode('storage')
-                    ->cannotBeEmpty()
-                    ->defaultValue('orm')
-                    ->validate()
-                        ->ifNotInArray($storages)
-                        ->thenInvalid('The storage "%s" is not supported. Please use one of the following storage: '.implode(', ', $storages))
                     ->end()
                 ->end()
 

@@ -38,7 +38,7 @@ class TranslationExtractCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('translation:extract')
+            ->setName('qbt:translation:extract')
             ->setDefinition(array(
                 new InputArgument('locale', InputArgument::OPTIONAL, 'The locale'),
                 new InputArgument('bundle', InputArgument::OPTIONAL, 'The bundle where to load the messages'),

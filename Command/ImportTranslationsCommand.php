@@ -55,8 +55,8 @@ class ImportTranslationsCommand extends ContainerAwareCommand
         $this->output->writeln('<info>*** Importing application translation files ***</info>');
         $this->importAppTranslationFiles($managedLocales);
 
-        $this->output->writeln('<info>*** Importing bundles translation files ***</info>');
-        $this->importBundlesTranslationFiles($managedLocales);
+        //$this->output->writeln('<info>*** Importing bundles translation files ***</info>');
+        //$this->importBundlesTranslationFiles($managedLocales);
 
         if ($this->input->getOption('cache-clear')) {
             $this->output->writeln('<info>Removing translations cache files ...</info>');

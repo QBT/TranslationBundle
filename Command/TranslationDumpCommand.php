@@ -38,7 +38,7 @@ class TranslationDumpCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('translation:dump')
+            ->setName('qbt:translation:dump')
             ->setDefinition(array(
                 new InputArgument('locale', InputArgument::OPTIONAL, 'The locale'),
                 new InputArgument('bundle', InputArgument::OPTIONAL, 'The bundle where to load the messages'),
